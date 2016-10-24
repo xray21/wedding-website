@@ -1,0 +1,25 @@
+<div id="topHalf" class="pageSection half">
+	<img src="images/floral.png" class="floralImg" style="left:0; transform:rotateY(180deg); ">
+	<div class="contentWrapper">
+		<h1 class="title">Registries</h1>
+		<div id="registries">
+			<span class="infoText" style="margin-top:10px; text-align:center;">Nikki and Enrique are registered at the following places:</span>
+			<div class="collection pageSection centerContent">
+				{{#registries}}
+					<div class="squareImg">
+						{{^enabled}}
+							<div class="overlay"></div>
+							<div class="overlayText">
+								<p>Coming Soon!</p>
+							</div>
+						{{/enabled}}
+						<a href="{{link}}" target="_blank">
+							<img src="images/{{imgsrc}}" width="100"/>
+						</a> 
+					</div>
+				{{/registries}}
+			</div>
+		</div>
+	</div>
+	<img src="images/floral.png" class="floralImg" style="right:0;">
+</div>

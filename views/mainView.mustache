@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{pageTitle}}</title>
+		{{> head}}
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="pageHeader" class="pageSection">
+				<div id="pageNav" class="pageSection centerContent">
+					<div class="centerContent" style="width:1000px; margin:0px auto;">
+						<a href="./home">HOME</a>
+						<a href="#" onClick="comingSoon();">RSVP</a>
+						<a href="./gallery">GALLERY</a>
+						<a href="./wedding-party">WEDDING PARTY</a>
+						<a href="./about-us">ABOUT US</a>
+						<a href="./venue">VENUE</a>
+						<a href="./registries">REGISTRIES</a>
+					</div>
+				</div>
+			</div>
+			<div id="pageContent" class="pageSection">
+				{{{pageContent}}}
+			</div>
+			<div id="pageFooter" class="pageSection">
+				<p style="text-align:center; padding:10px;">
+					Turnazar, Inc. © 2016 All Rights Reserved to Nikki, since she seems to own everything now.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

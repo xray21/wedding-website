@@ -1,0 +1,133 @@
+<script src="scripts/slideshowManager.js"></script>
+
+<div id="topHalf" class="pageSection half">
+	<img src="images/floral.png" class="floralImg" style="left:0; transform:rotateY(180deg); ">
+	<div class="contentWrapper"> 
+		<h1 class="title">We're Getting Hitched!</h1>
+	
+		<div class="pageSection centerContent" style="justify-content:space-between;">
+			<div id="leftSide">
+				<img src="images/nikki.jpg" width="150px" class="thickBorder" />
+				<img src="images/wand.png" style="float:left;"/>
+			</div>
+			<div id="slideshow" class="thickBorder">
+				<div id="img0" class="slideshowImage">
+					<!--<img src="images/slideshow/1.jpg" width="100%" style="transform:rotate(-90deg)" />-->
+				</div>
+				<div id="img1" class="slideshowImage"></div>
+			</div>
+			<div id="rightSide">
+				<img src="images/enrique.jpg" width="150px" class="thickBorder" />
+				<img src="images/lightsaber2.png" style="float:right;"/>
+			</div>
+		</div>
+		<div class="pageSection centerContent">
+			<div style="text-align:center;">
+				<span class="infoText">I know, we can't believe it either.</span>
+				<p style="margin-top:10px;">
+					<a href="#" class="bigAssButton navyblue" onClick="comingSoon();">RSVP Now!</a>
+				</p>
+			</div>
+		</div>
+		<div class="pageSection centerContent">
+			<div id="countdown">
+				<h3>Countdown</h3>
+				<div id="countdownBox"></div>
+			</div>
+		</div>
+	</div>
+	<img src="images/floral.png" class="floralImg" style="right:0;">
+</div>
+<div id="bottomHalf" class="pageSection half">
+	<div class="contentWrapper">
+		<div class="pageSection centerContent">
+			<div id="timeInfo" style="text-align:center;">
+				<h3>Here's When:</h3>
+				<span class="infoText">Saturday, January 14th, 2017</span>
+				<span class="infoText">5:30 PM</span>
+			</div>
+		</div>
+		<div class="pageSection centerContent" style="justify-content:space-between;">
+			<div id="ceremonyInfo" style="text-align:center;">
+				<h3>The Ceremony</h3>
+				<img src="images/vizcaya_small.jpg"  />
+				<span class="infoText">Vizcaya Victorian Hotel</span>
+				<span class="infoText">5:30 PM - 6:00 PM</span>
+			</div>
+			<div id="receptionInfo" style="text-align:center;"> 
+				<h3>The Reception</h3>
+				<img src="images/vizcaya_small.jpg"  />
+				<span class="infoText">Also Vizcaya</span>
+				<span class="infoText">6:00 PM - 11:00 PM</span>
+			</div>
+		</div>
+		<div class="pageSection centerContent">
+			<div id="registryInfo" style="text-align:center;">
+				<h3>Registries!</h3>
+				<!--<span class="infoText">We're getting married. Give us some stuff.</span>-->
+			</div>	
+		</div>
+		<div id="registryList" class="pageSection centerContent" >
+			{{#registries}}
+				<div class="squareImg">
+					{{^enabled}}
+						<div class="overlay"></div>
+						<div class="overlayText">
+							<p>Coming Soon!</p>
+						</div>
+					{{/enabled}}
+					<a href="{{link}}" target="_blank">
+						<img src="images/{{imgsrc}}" width="100"/>
+					</a>
+				</div>
+			{{/registries}}
+		</div>
+	</div>
+</div>
+
+<script>
+	var Timer = (function () {
+		var Timer = function (alarmTime, alarmFunc, displayElement) {
+			var me = this;
+
+			this.alarmTime = Math.round(alarmTime);
+			this.alarmFunc = alarmFunc || function () { };
+			this.displayElement = displayElement || $("#timer").find(".timeBox");
+
+			this.timerInterval = setInterval(function () {
+				me.alarmTime--;
+
+				if (me.displayElement) {
+					me.displayElement.html(me.formatTime(me.alarmTime));
+				}
+			}, 1000);
+		}
+
+		Timer.prototype.formatTime = function (seconds) {
+			var d = Math.floor(Math.abs(seconds / (3600 * 24))).toString()
+			var h = Math.floor(Math.abs((seconds % (3600 * 24)) / 3600)).toString();
+			var m = Math.floor(Math.abs(((seconds % (3600 * 24)) % 3600) / 60)).toString();
+			var s = Math.floor(Math.abs(((seconds % (3600 * 24)) % 3600) % 60)).toString();
+
+			if (h.length < 2) {
+				h = "0" + h;
+			}
+			if (m.length < 2) {
+				m = "0" + m;
+			}
+			if (s.length < 2) {
+				s = "0" + s;
+			}
+
+			return d + " Days, " + h + " Hours, " + m + " Minutes, " + s + " Seconds";
+		}
+
+		return Timer;
+	})();
+	
+	var curDate = new Date();
+	var weddingDate = new Date(2017, 0, 14, 17, 30);
+	var timeLeftToWedding = (Math.abs(weddingDate.getTime() - curDate.getTime()) / 1000)
+	
+	var timer = new Timer(timeLeftToWedding, null, $("#countdown #countdownBox"));
+</script>

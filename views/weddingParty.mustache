@@ -1,0 +1,65 @@
+<div id="topHalf" class="pageSection half">
+	<img src="images/floral.png" class="floralImg" style="left:0; transform:rotateY(180deg); ">
+	<div class="contentWrapper">
+		<h1 class="title">Bridal Party</h1>
+		<div id="bridesParty">
+			<h3>Da Bride Side</h3>
+			{{#bridesmaids}}
+				<div class="bridesmaid weddingPartyMember left ">
+					<div class="pic">
+						<img src="images/weddingParty/{{imageFileSpec}}" width="150px" class="thickBorder" data-imgsrc="images/weddingParty/{{imageFileSpec}}" />
+					</div>
+					<div class="info">
+						<div class="infoItem">
+							<div class="infoValue weddingPartyName">{{name}}</div>
+						</div>
+						<div class="infoItem">
+							<div class="infoValue">{{title}}</div>
+						</div>
+						<div class="infoItem">
+							<div class="infoValue">Nikki's {{relationship}}</div>
+						</div>
+					</div>
+				</div>
+			{{/bridesmaids}}
+		</div>
+		<div id="groomsParty">
+			<h3 style="float:right;">Fruit of the Groom</h3>
+			{{#groomsman}}
+				<div class="groomsman weddingPartyMember right ">
+					<div class="pic">
+						<img src="images/weddingParty/{{imageFileSpec}}" width="150px" class="thickBorder" data-imgsrc="images/weddingParty/{{imageFileSpec}}" />
+					</div>
+					<div class="info">
+						<div class="infoItem">
+							<div class="infoValue weddingPartyName">{{name}}</div>
+						</div>
+						<div class="infoItem">
+							<div class="infoValue">{{title}}</div>
+						</div>
+						<div class="infoItem">
+							<div class="infoValue">Enrique's {{relationship}}</div>
+						</div>
+					</div>
+				</div>
+			{{/groomsman}}
+		</div>
+	</div>
+	<img src="images/floral.png" class="floralImg" style="right:0;">
+</div>
+
+<script>
+	$(function(){
+		$(document).on("mouseover", "img", function(e){
+			var $img = $(this);
+			var src = $img.data("imgsrc");
+			var newSrc = src.replace(".", "-alt.");
+			
+			$img.prop("src", newSrc);
+		});
+		
+		$(document).on("mouseout", "img", function(e){
+			$(this).prop("src", $(this).data("imgsrc"));
+		});
+	});
+</script>

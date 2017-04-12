@@ -17,14 +17,14 @@ h3				{ font-size:48px; font-family:"Allura"; margin:0px; }
 #wrapper			{ display:flex; flex-direction:column; /* height:100%; */ margin:0px auto; } 
 
 #pageHeader			{ }  
-#pageNav		{ margin:0px; background-color:#FFF;  }
-#pageNav a		{ padding:15px; color:midnightblue; font-size:14px; }
-#pageNav a:hover { text-decoration:underline; }
+#pageNav			{ margin:0px; background-color:#FFF;  }
+#pageNav a			{ padding:15px; color:midnightblue; font-size:14px; }
+#pageNav a:hover 	{ text-decoration:underline; }
 
 #pageContent		{ display:flex; flex-direction:column;  }
 .half				{ padding:50px 0px; }
-#topHalf 			{ background:url("../images/bg2.png"); position:relative; z-index:1; flex:1; border-bottom:5px solid gold; }
-#topHalf .infoText 	{ color:midnightblue; }
+#topHalf 			{ background:url("../images/bg2.png"); position:relative; z-index:1; flex:1; border-bottom:5px solid #DAA520; }
+#topHalf .infoText 	{ color:midnightblue; font-size:28px; }
 #topHalf h3 		{ color:midnightblue; background:url("../images/bg2.png"); opacity:.9; }
 
 #bottomHalf { 
@@ -38,15 +38,18 @@ h3				{ font-size:48px; font-family:"Allura"; margin:0px; }
 #bottomHalf .infoText 	{ color:#EEE;}
 
 #pageFooter 		{ background-color:#001637; color:white; flex:1; }
+#pageFooter p		{ text-align:center; padding:10px; }
 
-.contentWrapper { width:1000px; margin:0px auto; overflow:hidden; }
-.floralImg 		{ position:absolute; z-index:-999; top:0; }
+.contentWrapper     { width:1000px; margin:0px auto; overflow:hidden; }
+.floralImg 			{ position:absolute; z-index:-999; top:0; }
+.floralImg.left 	{ left:0; transform:rotateY(180deg); }
+.floralImg.right 	{ right:0; }
 
 /************************/
 /**** SHARED CLASSES ****/
 /************************/
 .thickBorder 		{ border:10px solid #BBB; }
-.infoText			{ display:block; font-size:28px; width:100%; color:#EEE;}
+.infoText			{ display:block; font-size:26px; width:100%; color:#EEE;}
 .pageSection		{ float:left; width:100%; }
 .centerContent		{ display:flex; justify-content:space-around; margin:20px 0px; }
 
@@ -62,11 +65,13 @@ h3				{ font-size:48px; font-family:"Allura"; margin:0px; }
 
 .clearfix:after 	{ clear: both; content: " "; display: block; height: 0; visibility: hidden; }
 
-.bigAssButton					{ border-radius:15px; color:white; font-size:28px; padding:4px 12px; text-decoration:none; }
+.bigAssButton					{ border-radius:15px; color:white; font-size:28px; padding:4px 20px; text-decoration:none; }
 .bigAssButton.navyblue 			{ background-color:#003366; }
 .bigAssButton.navyblue:hover	{ background-color:#001637; }
 .bigAssButton.silver 			{ background-color:#C0C0C0; }
 .bigAssButton.silver:hover		{ background-color:#A0A0A0; }
+
+.bigAssButton:not(:last-child)  { margin-right:10px; }
 
 .Button								{ color:white; font-size:13px; padding:2px 6px; }
 .NButton							{ border:1px solid black; background-color:#B43030; }
@@ -104,7 +109,12 @@ a.ListBigItem						{ }
 .weddingPartyMember.right>.pic   { float:right; margin-left:5px; width:170px; }
 .weddingPartyMember.right>.info  { float:right; text-align:right; width:calc(100% - 175px); }
 
-.weddingPartyName				{ font-size:24px;}
+.weddingPartyName				{ font-size:24px; }
+
+/*******************/
+/**** VENUE CSS ****/
+/*******************/
+#directions #map	{ float:left; height:450px; margin-right:20px; }
 
 /*********************/
 /**** GALLERY CSS ****/
@@ -113,7 +123,36 @@ a.ListBigItem						{ }
 .galleria-info-text { display:block !important; opacity:.75; }
 .galleria-info-link { display:none; }
 
-#controls { padding:15px; text-align:center; }
+/******************/
+/**** RSVP CSS ****/
+/******************/
+#rsvpStep1								{ margin-top:10px; text-align:center; }
+#rsvpStep1 .formLabel 					{ margin-bottom:20px; }
+#rsvpStep1 input[type="text"],
+    #rsvpStep2 input[type="text"]		{ font-size:20px; height:40px; width:300px; text-align:center; }
+#rsvpStep2 input[type="text"]			{ width:calc(75% - 2px); }
+
+#rsvpStep2		{ border-top:1px solid gray; display:none; padding-top:25px; text-align:center; } 
+#rsvpStep2 h3 	{ font-size:80px; font-weight:normal; }
+#rsvpStep2 h4 	{ font-size:24px; color:midnightblue; margin-bottom:15px; font-weight:normal; }
+#rsvpStep2 p	{ font-size:20px; }
+
+#rsvpStep2 #familyMembers 						{ display:flex; flex-direction:column; align-items:center; }
+#rsvpStep2 #familyMembers .familyMember 		{ font-size:18px; }
+#rsvpStep2 #familyMembers .familyMember label 	{ font-weight:bold; -webkit-transition: color .2s; transition: color .2s; }
+
+#rsvpStep2 #familyMembers .collection			{ text-align:left; }
+
+#family				{  }
+
+.family-section 	{ float:left; margin:10px 0px; width:100%; }
+.selected			{ color:#E5AF30; }
+
+textarea	{ font-size:20px; height:100px; padding:5px; resize:none; }
+
+.formElement		{ margin-bottom:10px; }
+
+.controls 			{ padding:15px; text-align:center; }
 
 /********************/
 /**** MOBILE CSS ****/

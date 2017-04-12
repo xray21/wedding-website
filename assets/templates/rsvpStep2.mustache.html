@@ -1,0 +1,40 @@
+<script id="rsvpStep2tmpl" type="x-tmpl-mustache">
+	<div id='family'>
+		<h3 class='familyName'>{{familyName}}</h3>
+		
+		<div id="familyMembers" class="family-section">
+			<h4>Please select everyone who will be attending:</h4>
+			<div class="collection">
+				{{#members}}
+					<div class="familyMember">
+						<div class="formElement">
+							<label {{#attending}}class="selected"{{/attending}}>
+								<input type="checkbox" data-name="{{name}}" {{#attending}}checked="checked{{/attending}}" />
+								{{name}}
+							</label>
+						</div>
+					</div>
+				{{/members}}
+			</div>
+		</div>
+		<div id="songRequest" class="family-section">
+			<h4>Song Request (Optional)</h4>
+			<div class="formElement">
+				<div class="formInput">
+					<input type="text" name="songRequest" value="{{songRequest}}" />
+				</div>
+			</div>
+		</div>
+		<div id="rsvpMessage" class="family-section">
+			<h4>Write a message for the Bride and Groom? (Optional)</h4>
+			<div class="formElement">
+				<div class="formInput">
+					<textarea name="rsvpMessage">{{rsvpMessage}}</textarea>
+				</div>
+			</div>
+		</div>
+		<div class="controls">
+			<a href="#" class="bigAssButton navyblue" name="submitRSVPButton">Submit RSVP!</a>
+		</div>
+	</div>
+</script>

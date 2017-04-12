@@ -1,0 +1,36 @@
+<div id="topHalf" class="pageSection half">
+	<img src="images/floral.png" class="floralImg left">
+	<div class="contentWrapper">
+		<h1 class="title">RSVP</h1>
+		<form name="rsvpForm">
+			<div id="rsvpStep1">
+				<div class="formElement">
+					<div class="formLabel infoText">
+						<span class="infoText">Please enter the code from your invitation</span>
+						<span class="infoText" style="font-size:19px;">No spaces, and case doesn't matter</span>
+					</div>
+					<div class="formInput">
+						<input type="text" name="inviteCode" placeholder="Put it in" />
+					</div>
+				</div>
+				<div class="messages">
+				</div>
+				<div class="controls">
+					<a href="#" class="bigAssButton navyblue" name="enterCodeButton">Enter Code</a>
+				</div>
+			</div>
+			<div id="rsvpStep2">
+			</div>
+		</form>
+	</div>
+	<img src="images/floral.png" class="floralImg right">
+</div>
+
+<style>
+	textArea { width:calc(75% - 2px); height:100px; }
+</style>
+
+<script src="scripts/mustache.js"></script>
+<script src="scripts/messageHandler.js"></script>
+<link rel="stylesheet" type="text/css" href="css/messageHandler.css" />
+<script src="scripts/rsvp.js"></script>
